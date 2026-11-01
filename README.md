@@ -14,7 +14,6 @@ Get the newest `ProjectBunny-vX.Y.Z-d3d12-x64.zip` from the
 | File | Role |
 | --- | --- |
 | `d3d12.dll` | DX12 hooking / shader-manipulation layer |
-| `Run.exe` | Loader; reads `d3dx.ini` from its own directory |
 | `dxcompiler.dll`, `dxil.dll` | Microsoft DirectXShaderCompiler runtime pair (SM6) |
 | `d3dx.ini` | Default configuration |
 | `LICENSE.txt` | ProjectBunny license |
@@ -38,7 +37,10 @@ are compiled to SM6 while the game runs.
 `d3dx.ini` ships as the **XXMI Launcher** variant: `[Loader]` names the target
 executable, whitelists `XXMI Launcher.exe` as the loader, sets
 `module = d3d12.dll` and enables `require_admin`. Edit that section if you
-launch through `Run.exe` directly.
+launch through a different loader.
+
+> **No loader is bundled.** The zip contains no `Run.exe`: your launcher
+> performs the injection and reads `d3dx.ini` itself.
 
 ## Versioning
 
